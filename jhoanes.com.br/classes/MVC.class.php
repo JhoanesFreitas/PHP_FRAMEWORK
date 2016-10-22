@@ -17,7 +17,7 @@ class MVC{
 		
 		if(!$this->controller){
 			require_once ABSPATH."/controllers/HomeController.class.php";
-			$this->controller = new HomeController();
+			$this->controller = new HomeController($this->parameters);
 			$this->controller->index();
 			return;
 		}
@@ -34,7 +34,7 @@ class MVC{
 			return;
 		}
 
-		$this->controller = new $this->controller();
+		$this->controller = new $this->controller($this->parameters);
 
 		if(!$this->action && method_exists($this->controller, 'index')){
 			$this->controller->index();
