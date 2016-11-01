@@ -28,4 +28,15 @@ class Controller{
 		}
 		return null;
 	}
+
+	function load_view(){
+		$v = new View(HEADER);
+		$v->show();
+
+		$v = new View($view);
+		$v->show();
+
+		$v = new View(FOOTER);
+		$v->show();
+	}
 }
